@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
 
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
@@ -26,7 +26,7 @@ jobs:
       run: flutter test --coverage
 
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v3
+      uses: codecov/codecov-action@v6
       with:
         file: coverage/lcov.info
 
@@ -35,7 +35,7 @@ jobs:
     needs: test
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
 
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
@@ -50,7 +50,7 @@ jobs:
       run: flutter build apk --release
 
     - name: Upload APK
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v6
       with:
         name: app-release.apk
         path: build/app/outputs/flutter-apk/app-release.apk
@@ -60,7 +60,7 @@ jobs:
     needs: test
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
 
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
@@ -80,7 +80,7 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
 
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
@@ -92,7 +92,7 @@ jobs:
       run: flutter pub get
 
     - name: Run semantic-release
-      uses: cycjimmy/semantic-release-action@v3
+      uses: cycjimmy/semantic-release-action@v6
       with:
         semantic_version: 18.0.0
         extra_plugins: |
