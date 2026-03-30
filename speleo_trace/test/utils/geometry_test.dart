@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:speleo_trace/utils/geometry.dart';
+import 'package:speleo_trace/src/utils/geometry.dart';
 
 void main() {
   group('Geometry Utils', () {

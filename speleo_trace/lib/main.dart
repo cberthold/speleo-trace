@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'views/triangulation_home_page.dart';
+import 'src/views/triangulation_home_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

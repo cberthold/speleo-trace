@@ -15,11 +15,12 @@ A Flutter application for speleological triangulation using GPS and compass data
 ```
 lib/
 ├── main.dart              # App entry point
-├── models/                # Data models
-├── viewmodels/            # Business logic & state management
-├── views/                 # UI components
-├── utils/                 # Utility functions
-└── services/              # External services (future)
+└── src/                   # Internal source code
+    ├── models/            # Data models
+    ├── viewmodels/        # Business logic & state management
+    ├── views/             # UI components
+    ├── utils/             # Utility functions
+    └── services/          # External services (future)
 
 test/
 ├── models/                # Model tests
@@ -33,13 +34,16 @@ scripts/                   # Build scripts
 
 ## Architecture
 
-This project follows the MVVM (Model-View-ViewModel) pattern:
+This project follows the MVVM (Model-View-ViewModel) pattern with a clean `lib/src/` organization that separates public API from internal implementation:
 
-- **Models**: Represent data structures and business entities
-- **ViewModels**: Handle business logic and state management
-- **Views**: Pure UI components that react to ViewModel changes
-- **Utils**: Pure utility functions for calculations
-- **Services**: Abstractions for external dependencies
+- **`lib/main.dart`**: Public entry point
+- **`lib/src/models/`**: Data structures and business entities
+- **`lib/src/viewmodels/`**: Business logic and state management
+- **`lib/src/views/`**: Pure UI components that react to ViewModel changes
+- **`lib/src/utils/`**: Pure utility functions for calculations
+- **`lib/src/services/`**: Abstractions for external dependencies
+
+The `src/` folder is a common pattern in Dart/Flutter projects to clearly separate public interfaces from internal code.
 
 ## Testing
 

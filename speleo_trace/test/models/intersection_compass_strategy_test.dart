@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:speleo_trace/models/intersection_compass_strategy.dart';
+import 'package:speleo_trace/src/models/intersection_compass_strategy.dart';
 
 void main() {
   group('IntersectionCompassStrategy', () {
