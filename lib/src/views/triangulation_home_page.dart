@@ -34,8 +34,8 @@ class _TriangulationHomePageState extends State<TriangulationHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => _viewModel,
+    return ChangeNotifierProvider.value(
+      value: _viewModel,
       child: Consumer<TriangulationViewModel>(
         builder: (context, viewModel, child) {
           final xs = viewModel.intersections;
