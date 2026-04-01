@@ -85,7 +85,7 @@ class _TriangulationHomePageState extends State<TriangulationHomePage> {
                                     TileLayer(
                                       urlTemplate:
                                           'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                                      userAgentPackageName: 'com.example.speleo_trace',
+                                      userAgentPackageName: 'com.bluecrew.cavelabs',
                                     ),
                                     PolylineLayer(
                                       polylines: [

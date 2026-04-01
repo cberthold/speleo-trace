@@ -1,4 +1,4 @@
-package com.example.speleo_trace
+package com.bluecrew.cavelabs
 
 import io.flutter.embedding.android.FlutterActivity
 
