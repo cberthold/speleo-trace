@@ -43,17 +43,31 @@ jobs:
         flutter-version: '3.41.6'
         channel: 'stable'
 
+    - name: Decode Secrets
+      run: |
+        echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/app/upload-keystore.jks
+        echo "${{ secrets.ANDROID_KEY_PROPERTIES }}" > android/key.properties
+
     - name: Install dependencies
       run: flutter pub get
 
-    - name: Build APK
-      run: flutter build apk --release
+    - name: Build App Bundle
+      run: flutter build appbundle --release
 
-    - name: Upload APK
-      uses: actions/upload-artifact@v6
+    - name: Upload AAB Artifact
+      uses: actions/upload-artifact@v4
       with:
-        name: app-release.apk
-        path: build/app/outputs/flutter-apk/app-release.apk
+        name: release-aab
+        path: build/app/outputs/bundle/release/app-release.aab
+
+#    - name: Build APK
+#      run: flutter build apk --release
+
+#    - name: Upload APK
+#      uses: actions/upload-artifact@v6
+#      with:
+#        name: app-release.apk
+#        path: build/app/outputs/flutter-apk/app-release.apk
 
   build-ios:
     runs-on: macos-latest
