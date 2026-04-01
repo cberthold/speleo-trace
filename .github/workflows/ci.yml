@@ -44,9 +44,11 @@ jobs:
         channel: 'stable'
 
     - name: Decode Secrets
+      env:
+        ANDROID_KEY_PROPERTIES: ${{ secrets.ANDROID_KEY_PROPERTIES }}
       run: |
         echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/app/upload-keystore.jks
-        echo "${{ secrets.ANDROID_KEY_PROPERTIES }}" > android/key.properties
+        printf '%s\n' "$ANDROID_KEY_PROPERTIES" > android/key.properties
 
     - name: Install dependencies
       run: flutter pub get
